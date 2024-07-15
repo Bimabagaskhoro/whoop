@@ -5,7 +5,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.rememberNavController
 import com.whoop.app.di.appModule
-import com.whoop.app.navigation.AppNavGraph
+import com.whoop.app.navigation.boarding.BoardingNavGraph
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.koin.compose.KoinApplication
 
@@ -17,6 +17,6 @@ fun App() = MaterialTheme {
         modules(appModule())
     }) {
         val navController = rememberNavController()
-        AppNavGraph(navController = navController)
+        BoardingNavGraph(navController = navController)
     }
 }

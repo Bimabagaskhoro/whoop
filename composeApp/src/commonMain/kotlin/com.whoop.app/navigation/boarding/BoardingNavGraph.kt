@@ -1,4 +1,4 @@
-package com.whoop.app.navigation
+package com.whoop.app.navigation.boarding
 
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.fillMaxSize
@@ -6,14 +6,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import com.whoop.app.navigation.DestinationsConstant.SPLASHSCREEN
+import com.whoop.app.navigation.utils.DestinationsConstant.SPLASHSCREEN
 
 @ExperimentalAnimationApi
 @Composable
-fun AppNavGraph(
+fun BoardingNavGraph(
     modifier: Modifier = Modifier,
     navController: NavHostController,
-    authActions: AppAction = AppAction(navController),
+    boardingAction: BoardingAction = BoardingAction(navController),
     startDestination: String = SPLASHSCREEN,
 ) {
     NavHost(

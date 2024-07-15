@@ -1,4 +1,4 @@
-package com.whoop.app.navigation
+package com.whoop.app.navigation.utils
 
 object DestinationsConstant {
     const val SPLASHSCREEN = "splash-screen"

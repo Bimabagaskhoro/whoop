@@ -1,8 +1,8 @@
-package com.whoop.app.navigation
+package com.whoop.app.navigation.boarding
 
 import androidx.navigation.NavHostController
 
-class AppAction(
+class BoardingAction(
     navController: NavHostController,
 ) {
 }
