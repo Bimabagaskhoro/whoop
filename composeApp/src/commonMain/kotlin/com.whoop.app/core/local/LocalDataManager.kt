@@ -7,14 +7,14 @@ class LocalDataManager(
     private val settings: Settings
 ) {
     fun saveData(localDataModel: LocalDataModel) {
-        settings.putString(PREF_ONE, localDataModel.prefOne)
+        settings.putString(PREF_ONE, localDataModel.boardingPref)
     }
 
-    fun getData(): LocalDataModel? {
+    fun getData(): LocalDataModel {
         val prefOne: String = settings.getString(key = PREF_ONE, defaultValue = "")
 
         return LocalDataModel(
-            prefOne = prefOne,
+            boardingPref = prefOne,
         )
     }
 

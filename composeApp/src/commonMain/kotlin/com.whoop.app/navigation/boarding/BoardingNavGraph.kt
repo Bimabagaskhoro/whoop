@@ -8,7 +8,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.whoop.app.feature.main.presentation.MainScreen
-import com.whoop.app.feature.onboard.presentation.BoardingScreen
+import com.whoop.app.feature.boarding.presentation.BoardingScreen
 import com.whoop.app.feature.splashscreen.presentation.Splashscreen
 import com.whoop.app.navigation.utils.DestinationsConstant.BOARDING_SCREEN
 import com.whoop.app.navigation.utils.DestinationsConstant.MAIN_SCREEN

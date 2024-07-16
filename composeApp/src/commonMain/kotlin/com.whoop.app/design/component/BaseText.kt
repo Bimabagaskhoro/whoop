@@ -3,12 +3,17 @@ package com.whoop.app.design.component
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
 fun BodyLargeText(
+    modifier: Modifier = Modifier,
+    textAlign: TextAlign = TextAlign.Center,
     text: String,
     color: Color = MaterialTheme.colorScheme.primary
 ) {
@@ -24,7 +29,11 @@ fun BodyLargeText(
 
 @Composable
 fun BodyMediumText(
+    modifier: Modifier = Modifier,
+    textAlign: TextAlign = TextAlign.Center,
     text: String,
+    size: Int = 14,
+    maxLines: Int = 1,
     color: Color = MaterialTheme.colorScheme.primary
 ) {
     Text(
@@ -32,14 +41,18 @@ fun BodyMediumText(
         style = MaterialTheme.typography.bodyMedium.copy(
             letterSpacing = (-0.05).sp,
             color = color,
+            fontSize = size.sp,
             fontWeight = FontWeight.SemiBold,
         ),
-        maxLines = 1
+        textAlign = textAlign,
+        maxLines = maxLines
     )
 }
 
 @Composable
 fun BodySmallText(
+    modifier: Modifier = Modifier,
+    textAlign: TextAlign = TextAlign.Center,
     text: String,
     color: Color = MaterialTheme.colorScheme.primary
 ) {
@@ -56,6 +69,8 @@ fun BodySmallText(
 
 @Composable
 fun TitleMediumText(
+    modifier: Modifier = Modifier,
+    textAlign: TextAlign = TextAlign.Center,
     text: String,
     color: Color = MaterialTheme.colorScheme.primary
 ) {
