@@ -15,7 +15,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
@@ -27,7 +26,6 @@ import com.whoop.app.core.base.utils.onSuccess
 import com.whoop.app.design.component.BaseScreen
 import com.whoop.app.design.component.TitleMediumText
 import com.whoop.app.design.theme.whoop_text_black
-import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.koinInject
 import whoop.composeapp.generated.resources.Res
