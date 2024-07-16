@@ -17,7 +17,6 @@ fun BodyLargeText(
         style = MaterialTheme.typography.bodyLarge.copy(
             letterSpacing = (-0.05).sp,
             color = color,
-            fontSize = 12.sp,
         ),
         maxLines = 1
     )
@@ -33,7 +32,6 @@ fun BodyMediumText(
         style = MaterialTheme.typography.bodyMedium.copy(
             letterSpacing = (-0.05).sp,
             color = color,
-            fontSize = 16.sp,
             fontWeight = FontWeight.SemiBold,
         ),
         maxLines = 1
@@ -51,6 +49,21 @@ fun BodySmallText(
             letterSpacing = (-0.05).sp,
             color = color,
             fontSize = 8.sp,
+        ),
+        maxLines = 1
+    )
+}
+
+@Composable
+fun TitleMediumText(
+    text: String,
+    color: Color = MaterialTheme.colorScheme.primary
+) {
+    Text(
+        text = text,
+        style = MaterialTheme.typography.titleMedium.copy(
+            letterSpacing = (-0.05).sp,
+            color = color,
         ),
         maxLines = 1
     )
