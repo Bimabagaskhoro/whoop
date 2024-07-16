@@ -48,7 +48,10 @@ import com.whoop.app.design.component.BodyMediumText
 import com.whoop.app.design.theme.whoop_text_black
 import com.whoop.app.feature.boarding.core.model.BoardingUiModel
 import com.whoop.app.utils.UtilsConstant.BOARDING_SAVE_PREF
+import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.koinInject
+import whoop.composeapp.generated.resources.Res
+import whoop.composeapp.generated.resources.btn_board
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -197,7 +200,7 @@ fun BoardingSection(
                     modifier = Modifier.padding(12.dp),
                     size = 18,
                     color = whoop_text_black,
-                    text = "Go"
+                    text = stringResource(Res.string.btn_board)
                 )
             }
         }

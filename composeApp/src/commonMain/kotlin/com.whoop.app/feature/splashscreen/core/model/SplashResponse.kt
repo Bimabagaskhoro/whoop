@@ -8,5 +8,5 @@ data class SplashResponse(
     @SerialName("icon")
     val icon: String? = "",
     @SerialName("tint")
-    val tint: Long? = 0
+    val tint: String? = ""
 )

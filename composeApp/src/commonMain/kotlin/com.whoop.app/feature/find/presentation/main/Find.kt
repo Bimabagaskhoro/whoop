@@ -90,7 +90,6 @@ fun FindScreen(
                     FindSection(
                         profile = profile,
                         onSwipe = {
-                            hint = "Swiped towards ${stringFrom(it)}"
                             currentIndex.intValue++
                             profileList.removeFirst()
                             val currentSnackBar = snackBarHostState.currentSnackbarData

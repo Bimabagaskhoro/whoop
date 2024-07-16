@@ -6,7 +6,7 @@ object SplashMapper {
     fun BaseResponse<SplashResponse>.toSplashUi() = this.data?.run {
         return SplashUiModel(
             icon = icon.orEmpty(),
-            tint = tint ?: 0
+            tint = tint.orEmpty().toLong()
         )
     } ?: SplashUiModel()
 }
