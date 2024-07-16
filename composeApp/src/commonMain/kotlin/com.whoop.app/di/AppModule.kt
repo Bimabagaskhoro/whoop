@@ -1,6 +1,7 @@
 package com.whoop.app.di
 
 import com.whoop.app.feature.boarding.di.boardModule
+import com.whoop.app.feature.login.di.loginModule
 import com.whoop.app.feature.splashscreen.di.splashModule
 
 fun appModule() = listOf(
@@ -9,5 +10,6 @@ fun appModule() = listOf(
     provideRepositoryModule,
     provideServiceModule,
     splashModule,
-    boardModule
+    boardModule,
+    loginModule
 )

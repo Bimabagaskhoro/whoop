@@ -7,10 +7,12 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.whoop.app.feature.main.presentation.MainScreen
 import com.whoop.app.feature.boarding.presentation.BoardingScreen
+import com.whoop.app.feature.login.presentation.LoginScreen
+import com.whoop.app.feature.main.presentation.MainScreen
 import com.whoop.app.feature.splashscreen.presentation.Splashscreen
 import com.whoop.app.navigation.utils.DestinationsConstant.BOARDING_SCREEN
+import com.whoop.app.navigation.utils.DestinationsConstant.LOGIN_SCREEN
 import com.whoop.app.navigation.utils.DestinationsConstant.MAIN_SCREEN
 import com.whoop.app.navigation.utils.DestinationsConstant.SPLASHSCREEN
 
@@ -30,16 +32,24 @@ fun BoardingNavGraph(
         composable(route = SPLASHSCREEN) {
             Splashscreen (
                 openBoarding = boardingAction.openBoarding,
-                openMain = boardingAction.openMain
+                openMain = boardingAction.openMain,
+                openLogin = boardingAction.openLoginFromSplash
             )
         }
 
         composable(route = MAIN_SCREEN) {
             MainScreen()
         }
+
         composable(BOARDING_SCREEN) {
             BoardingScreen(
-                openMainFromBoarding = boardingAction.openMainFromBoarding
+                openMainFromBoarding = boardingAction.openMainFromBoarding,
+                openLogin = boardingAction.openLoginFromBoarding
+            )
+        }
+        composable(route = LOGIN_SCREEN) {
+            LoginScreen(
+                openMainFromLogin = boardingAction.openMainFromLogin
             )
         }
     }

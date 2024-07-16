@@ -16,10 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.seiko.imageloader.rememberImagePainter
-import com.whoop.app.utils.UtilsConstant.LOGO_URL
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.painterResource
 import org.koin.compose.koinInject
 import whoop.composeapp.generated.resources.Res
@@ -30,18 +27,29 @@ import kotlin.time.Duration.Companion.seconds
 fun Splashscreen(
     openBoarding: () -> Unit,
     openMain: () -> Unit,
+    openLogin: () -> Unit,
     viewModel: SplashViewModel = koinInject()
 ) {
     val boardingStatus by viewModel.checkBoardingStatus.collectAsState()
+    val checkGoogleSignIn by viewModel.checkGoogleSignIn.collectAsState()
 
     LaunchedEffect(Unit) {
         delay(1.seconds)
-        if (boardingStatus) {
-            delay(3000)
-            openMain()
-        } else {
-            delay(3000)
-            openBoarding()
+        when {
+            boardingStatus && checkGoogleSignIn -> {
+                delay(3000)
+                openMain()
+            }
+
+            boardingStatus -> {
+                delay(3000)
+                openLogin()
+            }
+
+            else -> {
+                delay(3000)
+                openBoarding()
+            }
         }
     }
 

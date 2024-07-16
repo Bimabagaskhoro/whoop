@@ -57,10 +57,12 @@ import whoop.composeapp.generated.resources.btn_board
 @Composable
 fun BoardingScreen(
     openMainFromBoarding: () -> Unit,
+    openLogin: () -> Unit,
     viewModel: BoardViewModel = koinInject()
 ) {
     val state by viewModel.uiState.collectAsState(UiState.Default)
     var boardingModel by rememberSaveable { mutableStateOf(listOf(BoardingUiModel())) }
+    val checkGoogleSignIn by viewModel.checkGoogleSignIn.collectAsState()
 
     state
         .onSuccess {
@@ -85,7 +87,11 @@ fun BoardingScreen(
                     pagerState = pagerState,
                     onClick = {
                         viewModel.saveBoarding(boardingPref = BOARDING_SAVE_PREF)
-                        openMainFromBoarding()
+                        if (checkGoogleSignIn) {
+                            openMainFromBoarding()
+                        } else {
+                            openLogin()
+                        }
                     }
                 )
             }

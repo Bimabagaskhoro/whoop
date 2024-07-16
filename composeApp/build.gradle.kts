@@ -66,6 +66,8 @@ kotlin {
 
             implementation(libs.multiplatform.settings)
             implementation(libs.multiplatform.settings.no.args)
+            implementation(libs.kmp.auth.google)
+            implementation(libs.kmp.auth.ui.helper)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)

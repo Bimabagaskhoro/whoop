@@ -4,4 +4,7 @@
     <string name="nav_title_home">Home</string>
     <string name="nav_title_find">Find</string>
     <string name="nav_title_chat">Chat</string>
+    <string name="title_login">Whoop for your matching?</string>
+    <string name="google_title">Sign in with Google</string>
+    <string name="anonymous_title">Anonymous</string>
 </resources>

@@ -3,6 +3,7 @@ package com.whoop.app.design.component
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -65,5 +66,11 @@ fun BaseScreen(
                 scrollBehavior = scrollBehavior
             )
         },
+        bottomBar = {
+            BottomAppBar(
+                contentColor = MaterialTheme.colorScheme.surface,
+                containerColor = MaterialTheme.colorScheme.surface
+            ) { }
+        }
     ) { content(it) }
 }

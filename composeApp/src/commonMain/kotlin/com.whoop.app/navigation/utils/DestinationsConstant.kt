@@ -8,4 +8,5 @@ object DestinationsConstant {
     const val FIND_DETAIL_SCREEN = "find-detail-screen"
     const val CHAT_SCREEN = "chat-screen"
     const val BOARDING_SCREEN = "boarding-screen"
+    const val LOGIN_SCREEN = "login-screen"
 }

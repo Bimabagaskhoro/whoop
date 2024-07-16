@@ -7,7 +7,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
@@ -15,6 +14,8 @@ fun BodyLargeText(
     modifier: Modifier = Modifier,
     textAlign: TextAlign = TextAlign.Center,
     text: String,
+    size: Int = 16,
+    maxLines: Int = 1,
     color: Color = MaterialTheme.colorScheme.primary
 ) {
     Text(
@@ -22,6 +23,8 @@ fun BodyLargeText(
         style = MaterialTheme.typography.bodyLarge.copy(
             letterSpacing = (-0.05).sp,
             color = color,
+            fontSize = size.sp,
+            textAlign = TextAlign.Center
         ),
         maxLines = 1
     )

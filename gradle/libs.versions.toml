@@ -21,6 +21,7 @@ koin="1.1.0"
 constraintlayout = "2.1.4"
 imageLoader = "1.7.1"
 russhwolf = "1.1.1"
+kmp-auth = "2.0.0"
 
 [libraries]
 
@@ -52,6 +53,9 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 imageLoader = { module = "io.github.qdsfdhvh:image-loader", version.ref = "imageLoader" }
 multiplatform-settings = { module = "com.russhwolf:multiplatform-settings", version.ref = "russhwolf" }
 multiplatform-settings-no-args = { module = "com.russhwolf:multiplatform-settings-no-arg", version.ref = "russhwolf" }
+kmp-auth-google = { module = "io.github.mirzemehdi:kmpauth-google", version.ref = "kmp-auth" }
+kmp-auth-firebase = { module = "io.github.mirzemehdi:kmpauth-firebase", version.ref = "kmp-auth" }
+kmp-auth-ui-helper = { module = "io.github.mirzemehdi:kmpauth-uihelper", version.ref = "kmp-auth" }
 
 [bundles]
 ktor = ["ktor-client-core", "ktor-client-content-negotiation"]

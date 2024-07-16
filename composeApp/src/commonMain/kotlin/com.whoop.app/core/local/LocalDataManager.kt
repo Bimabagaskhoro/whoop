@@ -1,6 +1,7 @@
 package com.whoop.app.core.local
 
 import com.russhwolf.settings.Settings
+import com.whoop.app.core.local.LocalConstant.AUTH_TOKEN
 import com.whoop.app.core.local.LocalConstant.PREF_ONE
 
 class LocalDataManager(
@@ -20,5 +21,14 @@ class LocalDataManager(
 
     fun clearData() {
         settings.remove(PREF_ONE)
+        settings.remove(AUTH_TOKEN)
+    }
+
+    fun saveToken(string: String) {
+        settings.putString(AUTH_TOKEN, string)
+    }
+
+    fun getToken() : String {
+        return settings.getString(key = AUTH_TOKEN, defaultValue = "")
     }
 }

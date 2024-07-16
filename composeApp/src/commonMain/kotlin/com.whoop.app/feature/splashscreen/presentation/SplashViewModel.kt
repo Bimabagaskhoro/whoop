@@ -20,12 +20,16 @@ class SplashViewModel(
     private val _checkBoardingStatus: MutableStateFlow<Boolean> = MutableStateFlow(false)
     val checkBoardingStatus = _checkBoardingStatus.asStateFlow()
 
+    private val _checkGoogleSignIn: MutableStateFlow<Boolean> = MutableStateFlow(false)
+    val checkGoogleSignIn = _checkGoogleSignIn.asStateFlow()
+
     private val _uiState = MutableStateFlow<UiState<SplashUiModel>>(UiState.Default)
     val uiState = _uiState.asStateFlow()
 
     init {
         getSplashData()
         boardingStatus()
+        googleSignIn()
     }
 
     private fun getSplashData() = viewModelScope.launch {
@@ -35,5 +39,9 @@ class SplashViewModel(
     }
     private fun boardingStatus() = viewModelScope.launch {
         _checkBoardingStatus.update { localData.getData().boardingPref.isNotEmpty() }
+    }
+
+    private fun googleSignIn() = viewModelScope.launch {
+        _checkGoogleSignIn.update { localData.getToken().isNotEmpty() }
     }
 }
