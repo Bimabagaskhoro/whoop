@@ -6,8 +6,8 @@ object BoardingMapper {
     fun BaseResponse<List<BoardingResponse>>.toBoardingUi(): List<BoardingUiModel> {
         return this.data?.map { dataOk ->
             BoardingUiModel(
-                title = dataOk.title,
-                img = dataOk.image
+                title = dataOk.title.orEmpty(),
+                img = dataOk.image.orEmpty()
             )
         }.orEmpty()
     }

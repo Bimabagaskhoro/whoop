@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class BoardingResponse(
     @SerialName("title")
-    val title: String = "",
+    val title: String? = "",
     @SerialName("image")
-    val image: String = ""
+    val image: String? = ""
 )
