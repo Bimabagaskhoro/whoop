@@ -5,8 +5,19 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class BoardingResponse(
-    @SerialName("title")
-    val title: String? = "",
-    @SerialName("image")
-    val image: String? = ""
-)
+    @SerialName("status")
+    val status: String? = null,
+    @SerialName("message")
+    val message: String? = null,
+    @SerialName("data")
+    val data: List<BoardingDataResponse>? = null
+) {
+
+    @Serializable
+    data class BoardingDataResponse(
+        @SerialName("title")
+        val title: String? = "",
+        @SerialName("image")
+        val image: String? = ""
+    )
+}

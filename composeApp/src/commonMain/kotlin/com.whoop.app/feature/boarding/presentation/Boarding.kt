@@ -96,8 +96,7 @@ fun BoardingScreen(
                     .align(Alignment.BottomStart)
             ) {
                 HorizontalPagerIndicator(
-                    pagerState = pagerState,
-                    modifier = Modifier.padding(16.dp),
+                    pagerState = pagerState
                 )
             }
         }
@@ -157,11 +156,12 @@ fun BoardingSection(
             tint = Color.Unspecified,
             contentDescription = null,
             modifier = Modifier.fillMaxWidth().height(100.dp).align(Alignment.Center)
+                .padding(bottom = 30.dp)
         )
 
         Column(
             modifier = Modifier.align(Alignment.BottomCenter)
-                .padding(horizontal = 32.dp, vertical = 100.dp),
+                .padding(horizontal = 32.dp, vertical = 150.dp),
             verticalArrangement = Arrangement.SpaceBetween,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -197,7 +197,7 @@ fun BoardingSection(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 BodyMediumText(
-                    modifier = Modifier.padding(12.dp),
+                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp),
                     size = 18,
                     color = whoop_text_black,
                     text = stringResource(Res.string.btn_board)
