@@ -21,6 +21,7 @@ fun BaseScreen(
     title: String,
     navigateBack: () -> Unit,
     rightIcon: @Composable () -> Unit,
+    centerIcon: @Composable () -> Unit,
     leftIcon: @Composable () -> Unit,
     iconBack: Boolean = false,
     iconLeft: Boolean = false,
@@ -31,10 +32,14 @@ fun BaseScreen(
         topBar = {
             CenterAlignedTopAppBar(
                 title = {
-                    TitleMediumText(
-                        text = title,
-                        color = whoop_text_black
-                    )
+                    if (title.isNotEmpty()) {
+                        TitleMediumText(
+                            text = title,
+                            color = whoop_text_black
+                        )
+                    } else {
+                        centerIcon()
+                    }
                 },
                 navigationIcon = {
                     if (iconBack) {

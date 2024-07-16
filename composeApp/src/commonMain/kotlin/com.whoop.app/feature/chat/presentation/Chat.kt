@@ -15,7 +15,8 @@ fun ChatScreen() {
         title = "",
         navigateBack = {},
         rightIcon = {},
-        leftIcon = {}
+        leftIcon = {},
+        centerIcon = {}
     ) { contentPadding ->
         Column(
             modifier = Modifier

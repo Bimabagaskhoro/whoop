@@ -70,7 +70,8 @@ fun FindScreen(
         title = "find",
         navigateBack = {},
         rightIcon = {},
-        leftIcon = {}
+        leftIcon = {},
+        centerIcon = {}
     ) { contentPadding ->
         Column(
             modifier = Modifier
