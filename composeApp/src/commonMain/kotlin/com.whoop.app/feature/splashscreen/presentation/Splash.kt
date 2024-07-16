@@ -5,8 +5,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.sharp.Done
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -16,10 +14,16 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.seiko.imageloader.rememberImagePainter
+import com.whoop.app.utils.UtilsConstant.LOGO_URL
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import org.jetbrains.compose.resources.painterResource
 import org.koin.compose.koinInject
+import whoop.composeapp.generated.resources.Res
+import whoop.composeapp.generated.resources.ic_logo
 import kotlin.time.Duration.Companion.seconds
 
 @Composable
@@ -33,15 +37,11 @@ fun Splashscreen(
     LaunchedEffect(Unit) {
         delay(1.seconds)
         if (boardingStatus) {
-            launch {
-                delay(3000)
-                openMain()
-            }
+            delay(3000)
+            openMain()
         } else {
-            launch {
-                delay(3000)
-                openBoarding()
-            }
+            delay(3000)
+            openBoarding()
         }
     }
 
@@ -52,7 +52,8 @@ fun Splashscreen(
             contentAlignment = Alignment.Center,
         ) {
             Icon(
-                imageVector = Icons.Sharp.Done,
+                painter = painterResource(Res.drawable.ic_logo),
+                tint = Color.Unspecified,
                 contentDescription = null,
                 modifier = Modifier
                     .width(217.dp)
