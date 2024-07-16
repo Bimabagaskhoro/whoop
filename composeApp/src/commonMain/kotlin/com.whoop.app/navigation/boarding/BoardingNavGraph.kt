@@ -6,6 +6,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import com.whoop.app.feature.main.presentation.MainScreen
+import com.whoop.app.feature.onboard.presentation.BoardingScreen
+import com.whoop.app.feature.splashscreen.presentation.Splashscreen
+import com.whoop.app.navigation.utils.DestinationsConstant.BOARDING_SCREEN
+import com.whoop.app.navigation.utils.DestinationsConstant.MAIN_SCREEN
 import com.whoop.app.navigation.utils.DestinationsConstant.SPLASHSCREEN
 
 @ExperimentalAnimationApi
@@ -21,6 +27,20 @@ fun BoardingNavGraph(
         startDestination = startDestination,
         modifier = Modifier.fillMaxSize()
     ) {
+        composable(route = SPLASHSCREEN) {
+            Splashscreen (
+                openBoarding = boardingAction.openBoarding,
+                openMain = boardingAction.openMain
+            )
+        }
 
+        composable(route = MAIN_SCREEN) {
+            MainScreen()
+        }
+        composable(BOARDING_SCREEN) {
+            BoardingScreen(
+                openMainFromBoarding = boardingAction.openMainFromBoarding
+            )
+        }
     }
 }
