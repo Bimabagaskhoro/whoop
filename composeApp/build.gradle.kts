@@ -114,7 +114,7 @@ buildkonfig {
     packageName = "com.whoop.app"
 
     defaultConfigs {
-        buildConfigField(FieldSpec.Type.STRING, "COINGECK0_URL", "http://146.190.103.238:5000/api/")
-        buildConfigField(FieldSpec.Type.STRING, "BASE_URL_MOCK", "http://127.0.0.1:3002/api/")
+        buildConfigField(FieldSpec.Type.STRING, "COINGECK0_URL", "")
+        buildConfigField(FieldSpec.Type.STRING, "BASE_URL_MOCK", "http://127.0.0.1:3003/api/")
     }
 }

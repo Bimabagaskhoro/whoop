@@ -6,13 +6,15 @@ import com.whoop.app.core.base.utils.UiState
 import com.whoop.app.core.base.utils.asUiState
 import com.whoop.app.core.local.LocalDataManager
 import com.whoop.app.core.local.LocalDataModel
+import com.whoop.app.feature.boarding.core.model.BoardingMapper.toBoardingUi
 import com.whoop.app.feature.boarding.core.model.BoardingUiModel
-import com.whoop.app.feature.boarding.core.model.dataBoardingUiModel
+import com.whoop.app.feature.boarding.core.repository.BoardingRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class BoardViewModel(
+    private val repository: BoardingRepository,
     private val localData: LocalDataManager
 ) : ViewModel() {
 
@@ -25,7 +27,7 @@ class BoardViewModel(
 
     private fun getBoardingData() = viewModelScope.launch {
         _uiState.asUiState {
-            dataBoardingUiModel
+            repository.getBoarding().toBoardingUi()
         }
     }
 
