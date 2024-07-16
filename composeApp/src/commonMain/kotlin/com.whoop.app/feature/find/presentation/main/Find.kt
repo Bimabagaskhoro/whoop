@@ -20,6 +20,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
@@ -45,7 +46,6 @@ import com.whoop.app.feature.home.core.model.HomeUiModel
 import com.whoop.app.feature.home.core.model.SwipeCard
 import com.whoop.app.feature.home.core.model.listHomeUiModel
 import com.whoop.app.navigation.main.MainAction
-import com.whoop.app.utils.stringFrom
 import kotlinx.coroutines.launch
 
 @Composable
@@ -57,7 +57,7 @@ fun FindScreen(
     val currentIndex = rememberSaveable { mutableIntStateOf(0) }
 
     var hint by remember {
-        mutableStateOf("Try to swipe a card")
+        mutableStateOf("")
     }
     val profileList = remember { mutableListOf<HomeUiModel>() }.apply {
         addAll(listHomeUiModel)
@@ -67,14 +67,15 @@ fun FindScreen(
     val snackBarHostState = remember { SnackbarHostState() }
 
     BaseScreen(
-        title = "home",
+        title = "find",
         navigateBack = {},
+        rightIcon = {},
         leftIcon = {}
     ) { contentPadding ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = Color.White)
+                .background(color = MaterialTheme.colorScheme.surface)
                 .padding(contentPadding),
             verticalArrangement = Arrangement.SpaceBetween,
             horizontalAlignment = Alignment.CenterHorizontally
@@ -83,13 +84,14 @@ fun FindScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(600.dp)
-                    .background(Color.White),
+                    .background(color = MaterialTheme.colorScheme.surface),
                 contentAlignment = Alignment.Center
             ) {
                 profileList.reversed().forEachIndexed { _, profile ->
                     FindSection(
                         profile = profile,
                         onSwipe = {
+                            hint = ""
                             currentIndex.intValue++
                             profileList.removeFirst()
                             val currentSnackBar = snackBarHostState.currentSnackbarData
@@ -97,8 +99,8 @@ fun FindScreen(
                             scope.launch {
                                 val result = snackBarHostState
                                     .showSnackbar(
-                                        message = "Undo swiped card",
-                                        actionLabel = "Undo",
+                                        message = "",
+                                        actionLabel = "",
                                         duration = SnackbarDuration.Short
                                     )
                                 if (result == SnackbarResult.ActionPerformed) {

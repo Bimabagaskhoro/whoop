@@ -83,3 +83,22 @@ fun TitleMediumText(
         maxLines = 1
     )
 }
+
+@Composable
+fun TitleSmallText(
+    modifier: Modifier = Modifier,
+    textAlign: TextAlign = TextAlign.Center,
+    size: Int = 14,
+    text: String,
+    color: Color = MaterialTheme.colorScheme.primary
+) {
+    Text(
+        text = text,
+        style = MaterialTheme.typography.titleSmall.copy(
+            letterSpacing = (-0.05).sp,
+            color = color,
+            fontSize = size.sp,
+        ),
+        maxLines = 1
+    )
+}

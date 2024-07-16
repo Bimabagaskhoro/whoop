@@ -115,6 +115,7 @@ buildkonfig {
 
     defaultConfigs {
         buildConfigField(FieldSpec.Type.STRING, "COINGECK0_URL", "")
+        buildConfigField(FieldSpec.Type.STRING, "APP_VERSION", "1.0.0")
         buildConfigField(FieldSpec.Type.STRING, "BASE_URL_MOCK", "http://127.0.0.1:3003/api/")
     }
 }

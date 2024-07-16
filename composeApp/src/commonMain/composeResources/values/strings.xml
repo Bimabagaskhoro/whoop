@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Whoop</string>
     <string name="btn_board">Let's Goo</string>
+    <string name="nav_title_home">Home</string>
+    <string name="nav_title_find">Find</string>
+    <string name="nav_title_chat">Chat</string>
 </resources>
