@@ -7,6 +7,7 @@ import com.mmk.kmpauth.google.GoogleAuthProvider
 import com.whoop.app.core.base.utils.UiState
 import com.whoop.app.core.base.utils.asUiState
 import com.whoop.app.core.local.LocalDataManager
+import com.whoop.app.core.local.LocalUserModel
 import com.whoop.app.utils.UtilsConstant.SERVER_ID
 import com.whoop.app.utils.randomString
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -45,16 +46,25 @@ class LoginViewModel(
         }
     }
 
-    fun saveToken(token: String? = "") = viewModelScope.launch {
-        if (token?.isNotEmpty() == true) {
-            localData.saveToken(token)
-        } else {
-            localData.saveToken(randomString())
-        }
+    fun saveToken(
+        idToken: String? = "",
+        accessToken: String? = "",
+        displayName: String? = "",
+        profilePicUrl: String? = "",
+    ) = viewModelScope.launch {
+        val data = LocalUserModel(
+            idToken = idToken ?: randomString(),
+            accessToken = accessToken ?: randomString(),
+            displayName = displayName.orEmpty(),
+            profilePicUrl = profilePicUrl.orEmpty()
+        )
+        localData.saveTokenAuth(data)
     }
 
     fun googleToken() = viewModelScope.launch {
-        googleToken.update { localData.getToken().isNotEmpty() }
+        googleToken.update {
+            localData.getTokenAuth().idToken.isNotEmpty() && localData.getTokenAuth().accessToken.isNotEmpty()
+        }
     }
 
     fun anonymousToken() = viewModelScope.launch {

@@ -9,6 +9,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.buildKonfig)
     alias(libs.plugins.kotlinx.serialization)
+    id("com.google.gms.google-services")
 }
 
 kotlin {
@@ -27,6 +28,7 @@ kotlin {
         iosTarget.binaries.framework {
             baseName = "ComposeApp"
             isStatic = true
+            export("io.github.mirzemehdi:kmpnotifier:1.1.0")
         }
     }
     
@@ -68,6 +70,7 @@ kotlin {
             implementation(libs.multiplatform.settings.no.args)
             implementation(libs.kmp.auth.google)
             implementation(libs.kmp.auth.ui.helper)
+            api("io.github.mirzemehdi:kmpnotifier:1.1.0")
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)

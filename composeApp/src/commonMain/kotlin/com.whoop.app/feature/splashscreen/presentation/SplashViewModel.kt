@@ -42,6 +42,8 @@ class SplashViewModel(
     }
 
     private fun googleSignIn() = viewModelScope.launch {
-        _checkGoogleSignIn.update { localData.getToken().isNotEmpty() }
+        _checkGoogleSignIn.update {
+            localData.getTokenAuth().idToken.isNotEmpty() && localData.getTokenAuth().accessToken.isNotEmpty()
+        }
     }
 }

@@ -1,9 +1,20 @@
 package com.whoop.app.shared
 
 import platform.UIKit.UIDevice
+import com.mmk.kmpnotifier.notification.NotifierManager
+import com.mmk.kmpnotifier.notification.configuration.NotificationPlatformConfiguration
 
 class IOSPlatform: Platform {
     override val name: String = UIDevice.currentDevice.systemName() + " " + UIDevice.currentDevice.systemVersion
 }
 
 actual fun getPlatform(): Platform = IOSPlatform()
+
+actual fun onApplicationStartPlatformSpecific() {
+    NotifierManager.initialize(
+        NotificationPlatformConfiguration.Ios(
+            showPushNotification = true,
+            askNotificationPermissionOnStart = true
+        )
+    )
+}

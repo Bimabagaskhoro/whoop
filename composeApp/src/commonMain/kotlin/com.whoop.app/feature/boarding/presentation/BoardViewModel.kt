@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.whoop.app.core.base.utils.UiState
 import com.whoop.app.core.base.utils.asUiState
 import com.whoop.app.core.local.LocalDataManager
-import com.whoop.app.core.local.LocalDataModel
+import com.whoop.app.core.local.LocalPrefModel
 import com.whoop.app.feature.boarding.core.model.BoardingMapper.toBoardingUi
 import com.whoop.app.feature.boarding.core.model.BoardingUiModel
 import com.whoop.app.feature.boarding.core.repository.BoardingRepository
@@ -37,11 +37,13 @@ class BoardViewModel(
     }
 
     fun saveBoarding(boardingPref: String) = viewModelScope.launch {
-        val data = LocalDataModel(boardingPref = boardingPref)
+        val data = LocalPrefModel(boardingPref = boardingPref)
         localData.saveData(data)
     }
 
     private fun googleSignIn() = viewModelScope.launch {
-        _checkGoogleSignIn.update { localData.getToken().isNotEmpty() }
+        _checkGoogleSignIn.update {
+            localData.getTokenAuth().idToken.isNotEmpty() && localData.getTokenAuth().accessToken.isNotEmpty()
+        }
     }
 }

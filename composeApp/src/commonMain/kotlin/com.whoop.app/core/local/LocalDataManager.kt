@@ -1,34 +1,46 @@
 package com.whoop.app.core.local
 
 import com.russhwolf.settings.Settings
-import com.whoop.app.core.local.LocalConstant.AUTH_TOKEN
+import com.whoop.app.core.local.LocalConstant.ACCESS_TOKEN
+import com.whoop.app.core.local.LocalConstant.DISPLAY_NAME
+import com.whoop.app.core.local.LocalConstant.ID_TOKEN
 import com.whoop.app.core.local.LocalConstant.PREF_ONE
+import com.whoop.app.core.local.LocalConstant.PROFILE_URL
 
 class LocalDataManager(
     private val settings: Settings
 ) {
-    fun saveData(localDataModel: LocalDataModel) {
-        settings.putString(PREF_ONE, localDataModel.boardingPref)
+    fun saveData(localPrefModel: LocalPrefModel) {
+        settings.putString(PREF_ONE, localPrefModel.boardingPref)
     }
 
-    fun getData(): LocalDataModel {
-        val prefOne: String = settings.getString(key = PREF_ONE, defaultValue = "")
-
-        return LocalDataModel(
-            boardingPref = prefOne,
+    fun getData(): LocalPrefModel {
+        return LocalPrefModel(
+            boardingPref = settings.getString(key = PREF_ONE, defaultValue = ""),
         )
     }
 
     fun clearData() {
         settings.remove(PREF_ONE)
-        settings.remove(AUTH_TOKEN)
+        settings.remove(ID_TOKEN)
+        settings.remove(ACCESS_TOKEN)
+        settings.remove(DISPLAY_NAME)
+        settings.remove(PROFILE_URL)
     }
 
-    fun saveToken(string: String) {
-        settings.putString(AUTH_TOKEN, string)
+    fun saveTokenAuth(localUserModel: LocalUserModel) {
+        settings.putString(ID_TOKEN, localUserModel.idToken)
+        settings.putString(ACCESS_TOKEN, localUserModel.accessToken)
+        settings.putString(DISPLAY_NAME, localUserModel.displayName)
+        settings.putString(PROFILE_URL, localUserModel.profilePicUrl)
     }
 
-    fun getToken() : String {
-        return settings.getString(key = AUTH_TOKEN, defaultValue = "")
+    fun getTokenAuth() : LocalUserModel {
+        return LocalUserModel(
+            idToken = settings.getString(key = ID_TOKEN, defaultValue = ""),
+            accessToken = settings.getString(key = ACCESS_TOKEN, defaultValue = ""),
+            displayName = settings.getString(key = DISPLAY_NAME, defaultValue = ""),
+            profilePicUrl = settings.getString(key = PROFILE_URL, defaultValue = ""),
+        )
     }
 }
