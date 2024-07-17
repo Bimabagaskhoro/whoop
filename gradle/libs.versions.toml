@@ -22,6 +22,8 @@ constraintlayout = "2.1.4"
 imageLoader = "1.7.1"
 russhwolf = "1.1.1"
 kmp-auth = "2.0.0"
+google-services = "4.4.0"
+kmp-notifier = "1.1.0"
 
 [libraries]
 
@@ -56,6 +58,7 @@ multiplatform-settings-no-args = { module = "com.russhwolf:multiplatform-setting
 kmp-auth-google = { module = "io.github.mirzemehdi:kmpauth-google", version.ref = "kmp-auth" }
 kmp-auth-firebase = { module = "io.github.mirzemehdi:kmpauth-firebase", version.ref = "kmp-auth" }
 kmp-auth-ui-helper = { module = "io.github.mirzemehdi:kmpauth-uihelper", version.ref = "kmp-auth" }
+kmp-notifier = { module = "io.github.mirzemehdi:kmpnotifier", version.ref = "kmp-notifier" }
 
 [bundles]
 ktor = ["ktor-client-core", "ktor-client-content-negotiation"]
@@ -68,3 +71,4 @@ compose = { id = "org.jetbrains.compose", version.ref = "compose" }
 android-application = { id = "com.android.application", version.ref = "agp" }
 buildKonfig = { id = "com.codingfeline.buildkonfig", version.ref = "buildKonfig" }
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+google-services = { id = "com.google.gms.google-services", version.ref = "google-services" }

@@ -9,7 +9,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.buildKonfig)
     alias(libs.plugins.kotlinx.serialization)
-    id("com.google.gms.google-services")
+    alias(libs.plugins.google.services)
 }
 
 kotlin {
@@ -70,7 +70,7 @@ kotlin {
             implementation(libs.multiplatform.settings.no.args)
             implementation(libs.kmp.auth.google)
             implementation(libs.kmp.auth.ui.helper)
-            api("io.github.mirzemehdi:kmpnotifier:1.1.0")
+            api(libs.kmp.notifier)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
