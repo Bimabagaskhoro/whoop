@@ -10,10 +10,13 @@ import androidx.navigation.compose.rememberNavController
 import com.whoop.app.feature.main.presentation.component.BottomBar
 import com.whoop.app.navigation.main.MainNavGraph
 import com.whoop.app.navigation.main.MainSections
+import org.koin.compose.koinInject
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
-fun MainScreen() {
+fun MainScreen(
+    viewModel: MainViewModel = koinInject()
+) {
     val navController = rememberNavController()
     val tabs = remember { MainSections.entries.toTypedArray() }
 

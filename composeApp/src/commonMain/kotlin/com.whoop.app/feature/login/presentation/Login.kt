@@ -73,8 +73,13 @@ fun LoginScreen(
             Spacer(Modifier.height(32.dp))
             if (initGoogleAuthProvider) {
                 GoogleButtonUiContainer(
-                    onGoogleSignInResult = { token ->
-                        viewModel.saveToken(token?.idToken)
+                    onGoogleSignInResult = { data ->
+                        viewModel.saveToken(
+                            idToken = data?.idToken,
+                            accessToken = data?.accessToken,
+                            displayName = data?.displayName,
+                            profilePicUrl = data?.profilePicUrl
+                        )
                         viewModel.googleToken()
                         viewModel.uiState()
                     }
